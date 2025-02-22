@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://xdcqja3u0n11"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_2ugbg"]
+[ext_resource type="Texture2D" uid="uid://de5gylx1p5yu1" path="res://assets/sprites/player_ship.png" id="1_mboow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2xoj"]
+radius = 17.2627
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2ugbg")
+max_speed = 150.0
+max_strafe_speed = 75.0
+acceleration = 12.0
+
+[node name="ship_col" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_a2xoj")
+
+[node name="ship_sprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_mboow")
+
+[node name="camera_controller" type="Node2D" parent="."]
+top_level = true
+
+[node name="camera_target" type="Node2D" parent="camera_controller"]
+
+[node name="player_cam" type="Camera2D" parent="camera_controller/camera_target"]
+zoom = Vector2(2, 2)
