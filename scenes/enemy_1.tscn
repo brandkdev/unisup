@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfqqp6u8ggk5r"]
+
+[ext_resource type="Texture2D" uid="uid://de5gylx1p5yu1" path="res://assets/sprites/player_ship.png" id="1_0mrnj"]
+[ext_resource type="Script" path="res://modules/enemy_1.gd" id="1_lewgf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cblu"]
+radius = 17.2627
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldruy"]
+radius = 300.0
+
+[node name="enemy_1" type="CharacterBody2D"]
+script = ExtResource("1_lewgf")
+
+[node name="ship_col" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_1cblu")
+
+[node name="ship_sprite" type="Sprite2D" parent="."]
+modulate = Color(0.953037, 0, 0.0914757, 1)
+rotation = 1.5708
+texture = ExtResource("1_0mrnj")
+
+[node name="detect_radius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_radius"]
+shape = SubResource("CircleShape2D_ldruy")
+
+[connection signal="body_entered" from="detect_radius" to="." method="_on_detect_radius_body_entered"]
+[connection signal="body_exited" from="detect_radius" to="." method="_on_detect_radius_body_exited"]

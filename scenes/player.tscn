@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2xoj"]
 radius = 17.2627
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["friendly"]]
 script = ExtResource("1_2ugbg")
 max_speed = 150.0
 max_strafe_speed = 75.0

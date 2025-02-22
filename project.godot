@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 ProjectileDmgs="*res://modules/global/projectile_dmgs.gd"
 
+[global_group]
+
+plasma=""
+friendly=""
+
 [input]
 
 forward={

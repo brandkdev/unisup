@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_projectile_1_body_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy"):
+	if area.is_in_group("friendly"):
 		body.visible = false
 		await get_tree().create_timer(0.1).timeout
 		queue_free()

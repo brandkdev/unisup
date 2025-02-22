@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0hdj32uxvsrb"]
+
+[ext_resource type="Texture2D" uid="uid://b8ch1sldpq7vm" path="res://assets/sprites/plasma_blue.png" id="1_23ydj"]
+[ext_resource type="Script" path="res://modules/enemy_proj_1.gd" id="1_rg065"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvvtv"]
+radius = 5.0
+height = 18.0
+
+[node name="enemy_proj_1" type="Node2D"]
+script = ExtResource("1_rg065")
+
+[node name="projectile_1_body" type="Area2D" parent="." groups=["plasma"]]
+
+[node name="plasma_blue" type="Sprite2D" parent="projectile_1_body"]
+modulate = Color(0.772549, 0, 0.2, 1)
+texture = ExtResource("1_23ydj")
+
+[node name="plasma_col" type="CollisionShape2D" parent="projectile_1_body"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yvvtv")
