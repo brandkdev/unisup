@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var projectile_1 = preload("res://scenes/projectile_1.tscn")
+var instance
+
 var health = 100
 @export var max_speed = 50.0
 @export var max_strafe_speed = 35.0
@@ -15,6 +18,7 @@ var reverse_speed = 0.0
 
 @onready var camera = $camera_controller/camera_target/player_cam
 @onready var camera_controller = $camera_controller
+@onready var sprite = $ship_sprite
 
 var rayOrigin = Vector2()
 var rayEnd = Vector2()
@@ -43,6 +47,12 @@ func get_input(delta):
 
 	# Apply movement based on calculated speeds
 	velocity = transform.x * forward_speed - transform.x * reverse_speed + transform.y * (strafe_speed_r - strafe_speed_l)
+	
+	if Input.is_action_just_pressed("weapon_1"):
+		instance = projectile_1.instantiate()
+		instance.transform = transform
+		instance.position = global_position + transform.x * 30
+		get_parent().add_child(instance)
 
 
 

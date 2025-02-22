@@ -1,5 +1,20 @@
-[gd_scene format=3 uid="uid://emtknoyqt5ck"]
+[gd_scene load_steps=4 format=3 uid="uid://emtknoyqt5ck"]
+
+[ext_resource type="Script" path="res://modules/projectile_1.gd" id="1_qetnk"]
+[ext_resource type="Texture2D" uid="uid://b8ch1sldpq7vm" path="res://assets/sprites/plasma_blue.png" id="1_sqeda"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3up2p"]
+radius = 5.0
+height = 18.0
 
 [node name="projectile_1" type="Node2D"]
+script = ExtResource("1_qetnk")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="projectile_1_body" type="StaticBody2D" parent="."]
+
+[node name="plasma_blue" type="Sprite2D" parent="projectile_1_body"]
+texture = ExtResource("1_sqeda")
+
+[node name="plasma_col" type="CollisionShape2D" parent="projectile_1_body"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3up2p")
